@@ -151,6 +151,9 @@
 		9672F7EE14D5F488007CEC96 /* NSObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9672F7ED14D5F488007CEC96 /* NSObject.mm */; };
 		BB5E78AF25145A83003CCA3A /* IMPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5E78AE25145A83003CCA3A /* IMPTest.m */; };
 		BBD026DA251060AC001BF0D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD026D9251060AC001BF0D9 /* main.m */; };
+		BBDB6CD82514AB0100EFEE9D /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC0630554660B00DB518D /* libobjc.A.dylib */; };
+		BBDB6CD92514AB0100EFEE9D /* libobjc.A.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D2AAC0630554660B00DB518D /* libobjc.A.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BBDB6CDF2514ABDA00EFEE9D /* MethodTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDB6CDD2514ABD900EFEE9D /* MethodTest.m */; };
 		C22F5208230EF38B001BFE14 /* objc-ptrauth.h in Headers */ = {isa = PBXBuildFile; fileRef = C22F5207230EF38B001BFE14 /* objc-ptrauth.h */; };
 		C2E6D3FC2225DCF00059DFAA /* DenseMapExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E6D3FB2225DCF00059DFAA /* DenseMapExtras.h */; };
 		E8923DA5116AB2820071B552 /* objc-block-trampolines.mm in Sources */ = {isa = PBXBuildFile; fileRef = E8923DA0116AB2820071B552 /* objc-block-trampolines.mm */; };
@@ -166,6 +169,13 @@
 			remoteInfo = objcdt;
 		};
 		837F67AC1A771F6E004D34FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D;
+			remoteInfo = objc;
+		};
+		BBDB6CDA2514AB0100EFEE9D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
@@ -201,6 +211,17 @@
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		BBDB6CDC2514AB0100EFEE9D /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BBDB6CD92514AB0100EFEE9D /* libobjc.A.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -332,6 +353,8 @@
 		BB5E78AE25145A83003CCA3A /* IMPTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPTest.m; sourceTree = "<group>"; };
 		BBD026D7251060AC001BF0D9 /* debug_objc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = debug_objc; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD026D9251060AC001BF0D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BBDB6CDD2514ABD900EFEE9D /* MethodTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodTest.m; sourceTree = "<group>"; };
+		BBDB6CDE2514ABDA00EFEE9D /* MethodTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodTest.h; sourceTree = "<group>"; };
 		BC8B5D1212D3D48100C78A5B /* libauto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libauto.dylib; path = /usr/lib/libauto.dylib; sourceTree = "<absolute>"; };
 		C217B55222DE556D004369BA /* objc-env.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "objc-env.h"; path = "runtime/objc-env.h"; sourceTree = "<group>"; };
 		C22F5207230EF38B001BFE14 /* objc-ptrauth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "objc-ptrauth.h"; path = "runtime/objc-ptrauth.h"; sourceTree = "<group>"; };
@@ -358,6 +381,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBDB6CD82514AB0100EFEE9D /* libobjc.A.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +683,8 @@
 				BBD026D9251060AC001BF0D9 /* main.m */,
 				BB5E78AD25145A83003CCA3A /* IMPTest.h */,
 				BB5E78AE25145A83003CCA3A /* IMPTest.m */,
+				BBDB6CDE2514ABDA00EFEE9D /* MethodTest.h */,
+				BBDB6CDD2514ABD900EFEE9D /* MethodTest.m */,
 			);
 			path = debug_objc;
 			sourceTree = "<group>";
@@ -772,10 +798,12 @@
 				BBD026D3251060AC001BF0D9 /* Sources */,
 				BBD026D4251060AC001BF0D9 /* Frameworks */,
 				BBD026D5251060AC001BF0D9 /* CopyFiles */,
+				BBDB6CDC2514AB0100EFEE9D /* Embed Libraries */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BBDB6CDB2514AB0100EFEE9D /* PBXTargetDependency */,
 			);
 			name = debug_objc;
 			productName = debug_objc;
@@ -941,6 +969,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB5E78AF25145A83003CCA3A /* IMPTest.m in Sources */,
+				BBDB6CDF2514ABDA00EFEE9D /* MethodTest.m in Sources */,
 				BBD026DA251060AC001BF0D9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1018,6 +1047,11 @@
 			isa = PBXTargetDependency;
 			target = D2AAC0620554660B00DB518D /* objc */;
 			targetProxy = 837F67AC1A771F6E004D34FA /* PBXContainerItemProxy */;
+		};
+		BBDB6CDB2514AB0100EFEE9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC0620554660B00DB518D /* objc */;
+			targetProxy = BBDB6CDA2514AB0100EFEE9D /* PBXContainerItemProxy */;
 		};
 		F9BCC729205C6A0900DD9AFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1132,6 +1166,7 @@
 				DYLIB_CURRENT_VERSION = 228;
 				EXECUTABLE_PREFIX = lib;
 				GCC_CW_ASM_SYNTAX = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(DSTROOT)/usr/include/**",
@@ -1432,7 +1467,9 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "top.xy00.debug-objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Debug;
 		};
@@ -1474,6 +1511,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -1481,7 +1519,9 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "top.xy00.debug-objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Release;
 		};

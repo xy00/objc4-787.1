@@ -25,9 +25,9 @@
 
 - (void)instanceTest
 {
-    void (*function) (id self, SEL _cmd, NSString *msg);
+    void (*function) (id , SEL , NSString *);
     
-    function = [IMPTest methodForSelector:@selector(testImp:)];
+    function = (void (*)(id , SEL , NSString *))[IMPTest methodForSelector:@selector(testImp:)];
     function(self, @selector(testImp:), @"IMP TEST0");
     /**
     *  CLASS:testImp:--IMP TEST0
@@ -38,7 +38,7 @@
     *  4. get IMP of class testImp:
     */
     
-    function = [self methodForSelector:@selector(testImp:)];
+    function = (void (*)(id , SEL , NSString *))[self methodForSelector:@selector(testImp:)];
     function(self, @selector(testImp:), @"IMP TEST1");
     /**
     *  INSTANCE:testImp:--IMP TEST1
@@ -49,7 +49,7 @@
     *  4. get IMP of instance testImp:
     */
     
-    function = [IMPTest instanceMethodForSelector:@selector(testImp:)];
+    function = (void (*)(id , SEL , NSString *))[IMPTest instanceMethodForSelector:@selector(testImp:)];
     function(self, @selector(testImp:), @"IMP TEST2");
     /**
     *  INSTANCE:testImp:--IMP TEST2
