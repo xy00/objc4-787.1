@@ -6,10 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IMPTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
+        IMPTest *imptest = [[IMPTest alloc] init];
+        [imptest instanceTest];
         NSLog(@"Hello, World!");
     }
     return 0;

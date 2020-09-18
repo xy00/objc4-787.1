@@ -149,6 +149,7 @@
 		83F550E0155E030800E95D3B /* objc-cache-old.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F550DF155E030800E95D3B /* objc-cache-old.mm */; };
 		87BB4EA70EC39854005D08E1 /* objc-probes.d in Sources */ = {isa = PBXBuildFile; fileRef = 87BB4E900EC39633005D08E1 /* objc-probes.d */; };
 		9672F7EE14D5F488007CEC96 /* NSObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9672F7ED14D5F488007CEC96 /* NSObject.mm */; };
+		BB5E78AF25145A83003CCA3A /* IMPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5E78AE25145A83003CCA3A /* IMPTest.m */; };
 		BBD026DA251060AC001BF0D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD026D9251060AC001BF0D9 /* main.m */; };
 		C22F5208230EF38B001BFE14 /* objc-ptrauth.h in Headers */ = {isa = PBXBuildFile; fileRef = C22F5207230EF38B001BFE14 /* objc-ptrauth.h */; };
 		C2E6D3FC2225DCF00059DFAA /* DenseMapExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E6D3FB2225DCF00059DFAA /* DenseMapExtras.h */; };
@@ -327,6 +328,8 @@
 		83F550DF155E030800E95D3B /* objc-cache-old.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "objc-cache-old.mm"; path = "runtime/objc-cache-old.mm"; sourceTree = "<group>"; };
 		87BB4E900EC39633005D08E1 /* objc-probes.d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.dtrace; name = "objc-probes.d"; path = "runtime/objc-probes.d"; sourceTree = "<group>"; };
 		9672F7ED14D5F488007CEC96 /* NSObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NSObject.mm; path = runtime/NSObject.mm; sourceTree = "<group>"; };
+		BB5E78AD25145A83003CCA3A /* IMPTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPTest.h; sourceTree = "<group>"; };
+		BB5E78AE25145A83003CCA3A /* IMPTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPTest.m; sourceTree = "<group>"; };
 		BBD026D7251060AC001BF0D9 /* debug_objc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = debug_objc; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD026D9251060AC001BF0D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC8B5D1212D3D48100C78A5B /* libauto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libauto.dylib; path = /usr/lib/libauto.dylib; sourceTree = "<absolute>"; };
@@ -654,6 +657,8 @@
 			isa = PBXGroup;
 			children = (
 				BBD026D9251060AC001BF0D9 /* main.m */,
+				BB5E78AD25145A83003CCA3A /* IMPTest.h */,
+				BB5E78AE25145A83003CCA3A /* IMPTest.m */,
 			);
 			path = debug_objc;
 			sourceTree = "<group>";
@@ -935,6 +940,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB5E78AF25145A83003CCA3A /* IMPTest.m in Sources */,
 				BBD026DA251060AC001BF0D9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
