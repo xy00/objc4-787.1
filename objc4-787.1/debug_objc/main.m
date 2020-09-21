@@ -6,11 +6,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TestIMP.h"
+#import "TestMethod.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        NSLog(@"Hello, World!");
+        TestIMP *testIMP = [[TestIMP alloc] init];
+        [testIMP test];
+        
+        TestMethod *testMethod = [[TestMethod alloc] init];
+        [testMethod testMethod];
+        
+        NSLog(@"Hello Objc");
     }
     return 0;
 }

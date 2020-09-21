@@ -1,13 +1,13 @@
 //
-//  IMPTest.m
+//  TestIMP.m
 //  debug_objc
 //
-//  Created by xy00 on 2020/9/18.
+//  Created by 刘光辉(健康互联网) on 2020/9/21.
 //
 
-#import "IMPTest.h"
+#import "TestIMP.h"
 
-@implementation IMPTest
+@implementation TestIMP
 
 + (void)testImp:(NSString *)msg
 {
@@ -23,11 +23,11 @@
     NSLog(@"INSTANCE:%@--%@", NSStringFromSelector(_cmd), msg);
 }
 
-- (void)instanceTest
+- (void)test
 {
     void (*function) (id , SEL , NSString *);
     
-    function = (void (*)(id , SEL , NSString *))[IMPTest methodForSelector:@selector(testImp:)];
+    function = (void (*)(id , SEL , NSString *))[TestIMP methodForSelector:@selector(testImp:)];
     function(self, @selector(testImp:), @"IMP TEST0");
     /**
     *  CLASS:testImp:--IMP TEST0
@@ -38,7 +38,7 @@
     *  4. get IMP of class testImp:
     */
     
-    function = (void (*)(id , SEL , NSString *))[self methodForSelector:@selector(testImp:)];
+    function = (void (*)(id , SEL , NSString *))[TestIMP methodForSelector:@selector(testImp:)];
     function(self, @selector(testImp:), @"IMP TEST1");
     /**
     *  INSTANCE:testImp:--IMP TEST1
@@ -49,7 +49,7 @@
     *  4. get IMP of instance testImp:
     */
     
-    function = (void (*)(id , SEL , NSString *))[IMPTest instanceMethodForSelector:@selector(testImp:)];
+    function = (void (*)(id , SEL , NSString *))[TestIMP instanceMethodForSelector:@selector(testImp:)];
     function(self, @selector(testImp:), @"IMP TEST2");
     /**
     *  INSTANCE:testImp:--IMP TEST2

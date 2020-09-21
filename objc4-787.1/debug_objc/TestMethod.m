@@ -1,15 +1,15 @@
 //
-//  MethodTest.m
+//  TestMethod.m
 //  debug_objc
 //
-//  Created by xy00 on 2020/9/18.
+//  Created by 刘光辉(健康互联网) on 2020/9/21.
 //
 
-#import "MethodTest.h"
+#import "TestMethod.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-@implementation MethodTest
+@implementation TestMethod
 
 + (NSString *)testMethod:(NSString *)msg
 {
@@ -36,7 +36,7 @@
     function = (NSString *(*)(id , SEL , NSString *))method_getImplementation(method1);
     NSLog(@"%@", function(self, @selector(testMethod:), @"method_1"));
     
-    Method method2 = class_getInstanceMethod(MethodTest.class, @selector(testMethod:)); // MethodTest
+    Method method2 = class_getInstanceMethod(TestMethod.class, @selector(testMethod:)); // MethodTest
     const char *encoding2 = method_getTypeEncoding(method2);
     NSString *encodingValue2 = [NSString stringWithUTF8String:encoding2];
     NSLog(@"%@", encodingValue2);
@@ -50,7 +50,7 @@
     function = (NSString *(*)(id , SEL , NSString *))method_getImplementation(method3);
     NSLog(@"%@", function(self, @selector(testMethod:), @"method_3"));
     
-    Method method4 = class_getClassMethod(MethodTest.class, @selector(testMethod:));
+    Method method4 = class_getClassMethod(TestMethod.class, @selector(testMethod:));
     const char *encoding4 = method_getTypeEncoding(method4);
     NSString *encodingValue4 = [NSString stringWithUTF8String:encoding4];
     NSLog(@"%@", encodingValue4);

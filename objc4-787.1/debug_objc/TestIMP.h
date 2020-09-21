@@ -1,17 +1,17 @@
 //
-//  IMPTest.h
+//  TestIMP.h
 //  debug_objc
 //
-//  Created by xy00 on 2020/9/18.
+//  Created by 刘光辉(健康互联网) on 2020/9/21.
 //
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IMPTest : NSObject
+@interface TestIMP : NSObject
 
-- (void)instanceTest;
+- (void)test;
 
 @end
 
