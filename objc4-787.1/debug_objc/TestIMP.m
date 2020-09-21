@@ -12,15 +12,13 @@
 + (void)testImp:(NSString *)msg
 {
     long long address = (long long)self;
-    NSLog(@"%@", @(address).stringValue);
-    NSLog(@"CLASS:%@--%@", NSStringFromSelector(_cmd), msg);
+    NSLog(@"CLASS:%@_%@--%@",@(address).stringValue, NSStringFromSelector(_cmd), msg);
 }
 
 - (void)testImp:(NSString *)msg
 {
     long long address = (long long)self;
-    NSLog(@"%@", @(address).stringValue);
-    NSLog(@"INSTANCE:%@--%@", NSStringFromSelector(_cmd), msg);
+    NSLog(@"INSTANCE:%@_%@--%@",@(address).stringValue, NSStringFromSelector(_cmd), msg);
 }
 
 - (void)test
@@ -28,7 +26,7 @@
     void (*function) (id , SEL , NSString *);
     
     function = (void (*)(id , SEL , NSString *))[TestIMP methodForSelector:@selector(testImp:)];
-    function(self, @selector(testImp:), @"IMP TEST0");
+    function((id)TestIMP.class, @selector(testImp:), @"IMP TEST0");
     /**
     *  CLASS:testImp:--IMP TEST0
     *
@@ -38,7 +36,7 @@
     *  4. get IMP of class testImp:
     */
     
-    function = (void (*)(id , SEL , NSString *))[TestIMP methodForSelector:@selector(testImp:)];
+    function = (void (*)(id , SEL , NSString *))[self methodForSelector:@selector(testImp:)];
     function(self, @selector(testImp:), @"IMP TEST1");
     /**
     *  INSTANCE:testImp:--IMP TEST1
