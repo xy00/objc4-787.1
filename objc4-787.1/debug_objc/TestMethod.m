@@ -2,7 +2,7 @@
 //  TestMethod.m
 //  debug_objc
 //
-//  Created by 刘光辉(健康互联网) on 2020/9/21.
+//  Created by xy00 on 2020/9/21.
 //
 
 #import "TestMethod.h"
@@ -48,14 +48,14 @@
     NSString *encodingValue3 = [NSString stringWithUTF8String:encoding3];
     NSLog(@"%@", encodingValue3);
     function = (NSString *(*)(id , SEL , NSString *))method_getImplementation(method3);
-    NSLog(@"%@", function(self, @selector(testMethod:), @"method_3"));
+    NSLog(@"%@", function((id)TestMethod.class, @selector(testMethod:), @"method_3"));
     
     Method method4 = class_getClassMethod(TestMethod.class, @selector(testMethod:));
     const char *encoding4 = method_getTypeEncoding(method4);
     NSString *encodingValue4 = [NSString stringWithUTF8String:encoding4];
     NSLog(@"%@", encodingValue4);
     function = (NSString *(*)(id , SEL , NSString *))method_getImplementation(method4);
-    NSLog(@"%@", function(self, @selector(testMethod:), @"method_4"));
+    NSLog(@"%@", function((id)TestMethod.class, @selector(testMethod:), @"method_4"));
     
 }
 
