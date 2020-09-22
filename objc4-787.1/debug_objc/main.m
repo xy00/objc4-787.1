@@ -8,15 +8,19 @@
 #import <Foundation/Foundation.h>
 #import "TestIMP.h"
 #import "TestMethod.h"
+#import "TestProperty.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        TestIMP *testIMP = [[TestIMP alloc] init];
-        [testIMP test];
-        
+//        TestIMP *testIMP = [[TestIMP alloc] init];
+//        [testIMP test];
+//
         TestMethod *testMethod = [[TestMethod alloc] init];
-        [testMethod testMethod];
+        [testMethod test];
+        
+        TestProperty *testProperty = [[TestProperty alloc] init];
+        [testProperty test];
         
         NSLog(@"Hello Objc");
     }

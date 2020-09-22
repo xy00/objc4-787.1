@@ -1,15 +1,15 @@
 //
-//  TestMethod.h
+//  TestProperty.h
 //  debug_objc
 //
-//  Created by xy00 on 2020/9/21.
+//  Created by xy00 on 2020/9/22.
 //
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestMethod : NSObject
+@interface TestProperty : NSObject
 
 - (void)test;
 

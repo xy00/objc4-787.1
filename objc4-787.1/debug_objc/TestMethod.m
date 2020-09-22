@@ -23,16 +23,22 @@
     return logMsg;
 }
 
-- (void)testMethod
+- (void)test
 {
     // -class return isa class
     // +class return class
     NSString * (*function) (id , SEL , NSString *);
     
     Method method1 = class_getInstanceMethod(self.class, @selector(testMethod:)); // MethodTest
+    
     const char *encoding1 = method_getTypeEncoding(method1);
     NSString *encodingValue1 = [NSString stringWithUTF8String:encoding1];
     NSLog(@"%@", encodingValue1);
+    
+    SEL method1_name = method_getName(method1);
+    NSString *name1 = NSStringFromSelector(method1_name);
+    NSLog(@"%@", name1);
+    
     function = (NSString *(*)(id , SEL , NSString *))method_getImplementation(method1);
     NSLog(@"%@", function(self, @selector(testMethod:), @"method_1"));
     
