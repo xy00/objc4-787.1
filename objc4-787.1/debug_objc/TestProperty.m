@@ -36,6 +36,11 @@
         const char *attr_value = attribute_t.value;
         NSLog(@"%@", [NSString stringWithUTF8String:attr_name]);
         NSLog(@"%@", [NSString stringWithUTF8String:attr_value]);
+//        class_getWeakIvarLayout(<#Class  _Nullable __unsafe_unretained cls#>)
+//        class_getIvarLayout(<#Class  _Nullable __unsafe_unretained cls#>)
+//        class_getInstanceVariable(<#Class  _Nullable __unsafe_unretained cls#>, <#const char * _Nonnull name#>)
+//        class_copyIvarList(<#Class  _Nullable __unsafe_unretained cls#>, <#unsigned int * _Nullable outCount#>)
+//        object_getIvar(<#id  _Nullable obj#>, <#Ivar  _Nonnull ivar#>)
     }
     /**
      *2020-09-22 10:14:17.647395+0800 debug_objc[77399:825618] T

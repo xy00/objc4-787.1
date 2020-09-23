@@ -152,6 +152,8 @@
 		BBA0969825184D3500653440 /* TestIMP.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA0969725184D3500653440 /* TestIMP.m */; };
 		BBA0969E25184F4500653440 /* TestMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA0969D25184F4500653440 /* TestMethod.m */; };
 		BBA096C825198C6C00653440 /* TestProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA096C725198C6C00653440 /* TestProperty.m */; };
+		BBA096CB2519A2AE00653440 /* TestIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA096CA2519A2AE00653440 /* TestIvar.m */; };
+		BBA096CE2519F65800653440 /* TestBaseIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA096CD2519F65800653440 /* TestBaseIvar.m */; };
 		C22F5208230EF38B001BFE14 /* objc-ptrauth.h in Headers */ = {isa = PBXBuildFile; fileRef = C22F5207230EF38B001BFE14 /* objc-ptrauth.h */; };
 		C2E6D3FC2225DCF00059DFAA /* DenseMapExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E6D3FB2225DCF00059DFAA /* DenseMapExtras.h */; };
 		E8923DA5116AB2820071B552 /* objc-block-trampolines.mm in Sources */ = {isa = PBXBuildFile; fileRef = E8923DA0116AB2820071B552 /* objc-block-trampolines.mm */; };
@@ -344,6 +346,10 @@
 		BBA0969D25184F4500653440 /* TestMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMethod.m; sourceTree = "<group>"; };
 		BBA096C625198C6C00653440 /* TestProperty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestProperty.h; sourceTree = "<group>"; };
 		BBA096C725198C6C00653440 /* TestProperty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestProperty.m; sourceTree = "<group>"; };
+		BBA096C92519A2AE00653440 /* TestIvar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestIvar.h; sourceTree = "<group>"; };
+		BBA096CA2519A2AE00653440 /* TestIvar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestIvar.m; sourceTree = "<group>"; };
+		BBA096CC2519F65800653440 /* TestBaseIvar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBaseIvar.h; sourceTree = "<group>"; };
+		BBA096CD2519F65800653440 /* TestBaseIvar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBaseIvar.m; sourceTree = "<group>"; };
 		BC8B5D1212D3D48100C78A5B /* libauto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libauto.dylib; path = /usr/lib/libauto.dylib; sourceTree = "<absolute>"; };
 		C217B55222DE556D004369BA /* objc-env.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "objc-env.h"; path = "runtime/objc-env.h"; sourceTree = "<group>"; };
 		C22F5207230EF38B001BFE14 /* objc-ptrauth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "objc-ptrauth.h"; path = "runtime/objc-ptrauth.h"; sourceTree = "<group>"; };
@@ -599,6 +605,10 @@
 				BBA0969D25184F4500653440 /* TestMethod.m */,
 				BBA096C625198C6C00653440 /* TestProperty.h */,
 				BBA096C725198C6C00653440 /* TestProperty.m */,
+				BBA096CC2519F65800653440 /* TestBaseIvar.h */,
+				BBA096CD2519F65800653440 /* TestBaseIvar.m */,
+				BBA096C92519A2AE00653440 /* TestIvar.h */,
+				BBA096CA2519A2AE00653440 /* TestIvar.m */,
 			);
 			path = debug_objc;
 			sourceTree = "<group>";
@@ -958,6 +968,8 @@
 			files = (
 				BBA0969825184D3500653440 /* TestIMP.m in Sources */,
 				BBA0967325184A1700653440 /* main.m in Sources */,
+				BBA096CE2519F65800653440 /* TestBaseIvar.m in Sources */,
+				BBA096CB2519A2AE00653440 /* TestIvar.m in Sources */,
 				BBA096C825198C6C00653440 /* TestProperty.m in Sources */,
 				BBA0969E25184F4500653440 /* TestMethod.m in Sources */,
 			);

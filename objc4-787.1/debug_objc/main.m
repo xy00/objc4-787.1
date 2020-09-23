@@ -9,6 +9,7 @@
 #import "TestIMP.h"
 #import "TestMethod.h"
 #import "TestProperty.h"
+#import "TestIvar.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -16,13 +17,14 @@ int main(int argc, const char * argv[]) {
 //        TestIMP *testIMP = [[TestIMP alloc] init];
 //        [testIMP test];
 //
-        TestMethod *testMethod = [[TestMethod alloc] init];
-        [testMethod test];
+//        TestMethod *testMethod = [[TestMethod alloc] init];
+//        [testMethod test];
+//
+//        TestProperty *testProperty = [[TestProperty alloc] init];
+//        [testProperty test];
         
-        TestProperty *testProperty = [[TestProperty alloc] init];
-        [testProperty test];
-        
-        NSLog(@"Hello Objc");
+        TestIvar *testIvar = [[TestIvar alloc] init];
+        [testIvar test];
     }
     return 0;
 }
