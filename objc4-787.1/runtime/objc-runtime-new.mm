@@ -6160,6 +6160,7 @@ log_and_fill_cache(Class cls, IMP imp, SEL sel, id receiver, Class implementer)
 **********************************************************************/
 IMP lookUpImpOrForward(id inst, SEL sel, Class cls, int behavior)
 {
+    // 获取消息转发 IMP
     const IMP forward_imp = (IMP)_objc_msgForward_impcache;
     IMP imp = nil;
     Class curClass;
@@ -6167,6 +6168,7 @@ IMP lookUpImpOrForward(id inst, SEL sel, Class cls, int behavior)
     runtimeLock.assertUnlocked();
 
     // Optimistic cache lookup
+    // 如果需要查找缓存，通过调用 cache_getImp 方法来查找类中方法的缓存
     if (fastpath(behavior & LOOKUP_CACHE)) {
         imp = cache_getImp(cls, sel);
         if (imp) goto done_nolock;
@@ -6191,11 +6193,13 @@ IMP lookUpImpOrForward(id inst, SEL sel, Class cls, int behavior)
     // objc_duplicateClass, objc_initializeClassPair or objc_allocateClassPair.
     checkIsKnownClass(cls);
 
+    // 判断类是否创建，如果没有创建，则将类实例化
     if (slowpath(!cls->isRealized())) {
         cls = realizeClassMaybeSwiftAndLeaveLocked(cls, runtimeLock);
         // runtimeLock may have been dropped but is now locked again
     }
 
+    // 如果是第一次调用当前类，需要执行 initialize 方法
     if (slowpath((behavior & LOOKUP_INITIALIZE) && !cls->isInitialized())) {
         cls = initializeAndLeaveLocked(cls, inst, runtimeLock);
         // runtimeLock may have been dropped but is now locked again
@@ -6218,12 +6222,16 @@ IMP lookUpImpOrForward(id inst, SEL sel, Class cls, int behavior)
 
     for (unsigned attempts = unreasonableClassCount();;) {
         // curClass method list.
+        // 从 curClass 方法列表中查找对应的 imp
         Method meth = getMethodNoSuper_nolock(curClass, sel);
         if (meth) {
             imp = meth->imp(false);
             goto done;
         }
 
+        
+        // 设置为 curClass 为 curClass 的父类
+        // 一直循环到 superclass 为空
         if (slowpath((curClass = curClass->superclass) == nil)) {
             // No implementation found, and method resolver didn't help.
             // Use forwarding.
@@ -6237,6 +6245,7 @@ IMP lookUpImpOrForward(id inst, SEL sel, Class cls, int behavior)
         }
 
         // Superclass cache.
+        // 从父类的缓存中获取 imp
         imp = cache_getImp(curClass, sel);
         if (slowpath(imp == forward_imp)) {
             // Found a forward:: entry in a superclass.
@@ -6244,6 +6253,7 @@ IMP lookUpImpOrForward(id inst, SEL sel, Class cls, int behavior)
             // resolver for this class first.
             break;
         }
+        // 判断是否查找到了 imp，如果查找到直接跳转到 done
         if (fastpath(imp)) {
             // Found the method in a superclass. Cache it in this class.
             goto done;
@@ -6252,15 +6262,17 @@ IMP lookUpImpOrForward(id inst, SEL sel, Class cls, int behavior)
 
     // No implementation found. Try method resolver once.
 
+    // 没有找到 imp，并且入参有 LOOKUP_RESOLVER 值。尝试方法动态解析
     if (slowpath(behavior & LOOKUP_RESOLVER)) {
         behavior ^= LOOKUP_RESOLVER;
         return resolveMethod_locked(inst, sel, cls, behavior);
     }
 
  done:
-    log_and_fill_cache(cls, imp, sel, inst, curClass);
+    log_and_fill_cache(cls, imp, sel, inst, curClass); // 查找的方法放入缓存
     runtimeLock.unlock();
  done_nolock:
+    // 如果 imp 没有找到并且动态方法解析也没有处理，则进入消息转发阶段
     if (slowpath((behavior & LOOKUP_NIL) && imp == forward_imp)) {
         return nil;
     }
