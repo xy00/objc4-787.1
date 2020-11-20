@@ -17,14 +17,14 @@ int main(int argc, const char * argv[]) {
 //        TestIMP *testIMP = [[TestIMP alloc] init];
 //        [testIMP test];
 //
-//        TestMethod *testMethod = [[TestMethod alloc] init];
-//        [testMethod test];
+        TestMethod *testMethod = [[TestMethod alloc] init];
+        [testMethod test];
 //
 //        TestProperty *testProperty = [[TestProperty alloc] init];
 //        [testProperty test];
         
-        TestIvar *testIvar = [[TestIvar alloc] init];
-        [testIvar test];
+//        TestIvar *testIvar = [[TestIvar alloc] init];
+//        [testIvar test];
     }
     return 0;
 }

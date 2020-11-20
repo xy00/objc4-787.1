@@ -5845,6 +5845,7 @@ search_method_list_inline(const method_list_t *mlist, SEL sel)
     } else {
         // Linear search of unsorted method list
         for (auto& meth : *mlist) {
+            // sel 是否相等
             if (meth.name() == sel) return &meth;
         }
     }
@@ -6160,7 +6161,38 @@ log_and_fill_cache(Class cls, IMP imp, SEL sel, id receiver, Class implementer)
 **********************************************************************/
 IMP lookUpImpOrForward(id inst, SEL sel, Class cls, int behavior)
 {
+    
+    /** 方法的定义
+     * name: 方法名称
+     * imp: 方法实现
+     * types: 编码方式
+     struct method_t {
+         // The representation of a "big" method. This is the traditional
+         // representation of three pointers storing the selector, types
+         // and implementation.
+         struct big {
+             SEL name;
+             const char *types;
+             MethodListIMP imp;emoji
+         };
+
+         // The representation of a "small" method. This stores three
+         // relative offsets to the name, types, and implementation.
+         struct small {
+             RelativePointer<SEL *> name;
+             RelativePointer<const char *> types;
+             RelativePointer<IMP> imp;
+         };
+     };
+     */
+    
     // 获取消息转发 IMP
+    // _objc_msgForward_impcache 调用 _objc_msgForward
+    // _objc_msgForward 调用
+    // _objc_forward_handler 的默认值为 objc_defaultForwardHandler
+    // 设置 objc_defaultForwardHandler 的值是调用 objc_setForwardHandler
+    // objc_setForwardHandler 方法调用是在 CoreFoundation 框架中 CFRuntime 文件中的 __CFInitialize() 方法中
+    // 虽然 CoreFoundation 开源，但是苹果删除了 objc_setForwardHandler 方法的调用
     const IMP forward_imp = (IMP)_objc_msgForward_impcache;
     IMP imp = nil;
     Class curClass;
@@ -6170,7 +6202,7 @@ IMP lookUpImpOrForward(id inst, SEL sel, Class cls, int behavior)
     // Optimistic cache lookup
     // 如果需要查找缓存，通过调用 cache_getImp 方法来查找类中方法的缓存
     if (fastpath(behavior & LOOKUP_CACHE)) {
-        imp = cache_getImp(cls, sel);
+        imp = cache_getImp(cls, sel);   // 从缓存中获取方法的实现
         if (imp) goto done_nolock;
     }
 
